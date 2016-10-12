@@ -41,3 +41,4 @@ RUN apt-get -y install dnsrecon fierce
 # Copy files
 COPY ./src/* /root/
 RUN source /root/.bashrc
+RUN git clone https://github.com/adlerhsieh/penetration-testing-examples.git ~/scripts
