@@ -2,7 +2,7 @@ FROM kalilinux/kali-linux-docker
 MAINTAINER Adler Hsieh
 
 # Config
-ENV python 3.5.0
+ENV python 2.7.10
 ENV ruby 2.3.1
 
 SHELL ["/bin/bash", "-c"]
@@ -34,6 +34,9 @@ RUN /root/.pyenv/shims/pip install -U pip
 RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash ; exit 0
 RUN /root/.rbenv/bin/rbenv install ${ruby}
 RUN /root/.rbenv/bin/rbenv global ${ruby}
+
+# Install penetration testing packages
+RUN apt-get -y install dnsrecon fierce
 
 # Copy files
 COPY ./src/* /root/
